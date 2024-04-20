@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row mt-5 ms-auto text-center g-3">
+        <h3>Hello Ms : <span class="text-main">{{UserData.name}}</span></h3>
+        <div class="col-md-4 cursor-pointer">
+            <div class="layer shadow border py-5" routerLink="/allorders">
+                <i class="text-main fa-solid fa-list-check fs-1"></i>
+                <p class="mt-4">Orders</p>
+            </div>
+        </div>
+        <div class="col-md-4 cursor-pointer">
+            <div class="layer shadow border py-5" routerLink="/cart">
+                <i class="text-main fa-solid fa-cart-shopping fs-1"></i>
+                <p class="mt-4">Cart</p>
+            </div>
+        </div>
+        <div class="col-md-4 cursor-pointer">
+            <div class="layer shadow border py-5" routerLink="/wishlist">
+                <i class="text-main fa-solid fa-heart fs-1"></i>
+                <p class="mt-4">wishlist</p>
+            </div>
+        </div>
+        <div class="col-md-4 cursor-pointer">
+            <div class="layer shadow border py-5"  routerLink="/location">
+                <i class="text-main fa-solid fa-map-location-dot fs-1"></i>
+                <p class="mt-4">Address</p>
+            </div>
+        </div>
+        <div class="col-md-4 cursor-pointer">
+            <div class="layer shadow border py-5" routerLink="/auth/forgetpassword">
+                <i class="text-main fa-solid fa-unlock-keyhole fs-1"></i>
+                <p class="mt-4">Reset Password</p>
+            </div>
+        </div>
+        <div class="col-md-4 cursor-pointer">
+            <div class="layer shadow border py-5" (click)="Logout()">
+                <i  class="text-main fa-solid fa-right-from-bracket fs-1"></i>
+                <p class="mt-4">Logout</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container-fluid mt-3">
+    <div class="row g-1">
+        <h2 class="text-mainColor">Shop pupular categories</h2>
+        <div class="col cursor-pointer" *ngFor="let categore of categoresList;let last = last"
+            [routerLink]="['/cateogoryProductes',categore._id]">
+            <div class="shadow border p-1 text-center">
+                <img [src]="categore.image" class="w-50" style="height: 200px;" />
+                <p class="mt-2">{{categore.name}}</p>
+            </div>
+            <div *ngIf="last" class="text-end my-1">
+                <i class="fa-solid fa-circle-chevron-right fa-2x text-mainColor cursor-pointer"
+                    routerLink="/category"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-1">
+        <h2 class="text-mainColor">Shop pupular Brands</h2>
+        <div class="col cursor-pointer" *ngFor="let brand of brandsList;let last = last"
+            [routerLink]="['/brandProductes',brand._id]">
+            <div class="shadow border p-1 text-center">
+                <img [src]="brand.image" class="w-50" style="height: 100px;" />
+                <p class="mt-2">{{brand.name}}</p>
+            </div>
+            <div *ngIf="last" class="text-end mt-1">
+                <i class="fa-solid fa-circle-chevron-right fa-2x text-mainColor cursor-pointer" routerLink="/brand"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-2">
+        <h2 class="text-mainColor">Shop pupular product</h2>
+        <div class="col cursor-pointer product" *ngFor="let product of productesList;;let last = last">
+            <div class="border p-2 shadow text-center overflow-hidden position-relative">
+                <i class="fa-solid fa-heart wish"(click)="addToWishList(product._id)"></i>
+                <div [routerLink]="['/productDetailes',product._id]">
+                    <img [src]="product.imageCover" class="w-100" style="height: 220px;" />
+                    <p class="text-mainColor">{{product.category.name}}</p>
+                    <p class="mt-2">{{product.title.split(' ').splice(0,3).join(' ')}}</p>
+                    <div class="d-flex justify-content-between">
+                        <p>{{product.price}} SAR</p>
+                        <p><span><i class="fa-solid fa-star rating-color"></i></span> {{product.ratingsAverage}} </p>
+                    </div>
+                </div>
+                <button class="btn bg-main text-light w-75" (click)="addtocart(product._id)">Add</button>
+            </div>
+            <div *ngIf="last" class="text-end mt-1">
+                <i class="fa-solid fa-circle-chevron-right fa-2x text-mainColor cursor-pointer" routerLink="/product"></i>
+            </div>
+        </div>
+    </div>
+</div>

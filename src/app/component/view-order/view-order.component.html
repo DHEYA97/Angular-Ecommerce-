@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row mt-5">
+        <h4>Order <span class="shadow mark">{{allOrderList[0].id}}</span> was filed on <span class="shadow mark">{{allOrderList[0].createdAt | date}}</span> </h4>
+        <h3 class="mt-3">Order Detailes :</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-main">Image</th>
+                        <th class="text-main">Name</th>
+                        <th class="text-main">Count</th>
+                        <th class="text-main">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cartItems of allOrderList[0].cartItems">
+                        <td class="w-25"><img [src]="cartItems.product.imageCover" class="w-25" alt=""></td>
+                        <td>{{cartItems.product.title}}</td>
+                        <td>{{cartItems.count}}</td>
+                        <td>{{cartItems.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-12 d-flex justify-content-between p-2 border-bottom">
+            <p>Payment Method : </p>
+            <p class="text-main">{{allOrderList[0].paymentMethodType}}</p>   
+        </div>
+        <div class="col-12 d-flex justify-content-between p-2 border-bottom">
+            <p>Tax  : </p>
+            <p class="text-main">{{allOrderList[0].taxPrice}} SAR</p>   
+        </div>
+        <div class="col-12 d-flex justify-content-between p-2 border-bottom">
+            <p>Shiping cost : </p>
+            <p class="text-main">{{allOrderList[0].shippingPrice}} SAR</p>   
+        </div>
+        <div class="col-12 d-flex justify-content-between p-2 border-bottom">
+            <p>Total : </p>
+            <p class="text-main">{{allOrderList[0].totalOrderPrice}} SAR</p>   
+        </div>
+        <div class="col-6 mx-auto">
+            <h3 class="text-main my-4 text-center">Shipping Info</h3>
+            <div class="col-12 d-flex justify-content-between p-2 border-bottom border-top">
+                <p>city  : </p>
+                <p class="text-main">{{allOrderList[0].shippingAddress.city}}</p>   
+            </div>
+            <div class="col-12 d-flex justify-content-between p-2 border-bottom">
+                <p>details</p>
+                <p class="text-main">{{allOrderList[0].shippingAddress.details}}</p>   
+            </div>
+            <div class="col-12 d-flex justify-content-between p-2 border-bottom">
+                <p>phone : </p>
+                <p class="text-main">{{allOrderList[0].shippingAddress.phone}}</p>   
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container bg-body-secondary mt-5">
+    <div class="row">
+        <h2 class="text-center mt-3 text-main">Shop Cart</h2>
+        <h5>Totall price : <span class="text-main">{{totalCartPrice}} SAR</span></h5>
+    </div>
+    <ng-container *ngFor="let item of itemcart">
+        <div class="row mt-2 p-4 border-bottom d-flex justify-content-center align-items-center" *ngIf="item.count > 0">
+            <div class="col-md-3">
+                <img [src]="item.product.imageCover" class="w-50">
+            </div>
+            <div class="col-md-4">
+                <p>{{item.product.title}}</p>
+                <p>{{item.price}} SAR</p>
+                <button class="btn btn-danger" (click)="RemoveSpecificItemCart(item.product._id)">Remove</button>
+            </div>
+            <div class="col-md-2 offset-2">
+                <button class="btn btn-success" (click)="UpdateItemCart(item.product._id,(item.count + 1))">+</button>
+                <span class="mx-2">{{item.count}}</span>
+                <button class="btn btn-success" (click)="(item.count-1) > 0 ? UpdateItemCart(item.product._id,(item.count + -1)) : RemoveSpecificItemCart(item.product._id) ">-</button>
+            </div>
+        </div>
+    </ng-container>
+    <div class="d-flex justify-content-around py-4">
+        <button class="btn btn-success" [routerLink]="['/ShippingAddress','online']">BayOnline</button>
+        <button class="btn btn-info" [routerLink]="['/ShippingAddress','cash']">Cash On Delivary</button>
+        <button class="btn btn-danger" (click)="RemoveAllItemCart()">Remove All Item Cart</button>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid mt-3">
+    <div class="row g-3">
+        <h2 class="text-main text-center">{{brandname}}</h2>
+        <div class="col-md-2 product cursor-pointer" *ngFor="let product of productesList;">
+            <div class="border p-2 shadow text-center overflow-hidden">
+                <div [routerLink]="['/productDetailes',product._id]">
+                    <img [src]="product.imageCover" class="w-100" style="height: 270px;" />
+                    <p class="text-mainColor">{{product.category.name}}</p>
+                    <p class="mt-2">{{product.title.split(' ').splice(0,3).join(' ')}}</p>
+                    <div class="d-flex justify-content-between">
+                        <p>{{product.price}} SAR</p>
+                        <p><span><i class="fa-solid fa-star rating-color"></i></span> {{product.ratingsAverage}} </p>
+                    </div>
+                </div>
+                <button class="btn bg-main text-light w-75" (click)="addtocart(product._id)">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

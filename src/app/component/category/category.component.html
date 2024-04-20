@@ -1,0 +1,11 @@
+<div class="container-fluid mt-3">
+    <div class="row g-3">
+        <h2 class="text-main text-center">All Categore</h2>
+        <div class="col-md-4 cursor-pointer" *ngFor="let categore of categoresList" [routerLink]="['/cateogoryProductes',categore._id]">
+            <div class="shadow border p-1 text-center">
+                <img [src]="categore.image" class="w-50" style="height: 300px;" />
+                <p class="mt-2 text-main">{{categore.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

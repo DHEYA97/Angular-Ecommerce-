@@ -1,0 +1,41 @@
+<div class="container">
+<div class="table-responsive mt-5">
+    <table class="table table-striped">
+        <thead class="">
+            <tr>
+                <th class="text-main fw-bold text-center">Order Number</th>
+                <th class="text-main fw-bold text-center">Date</th>
+                <th class="text-main fw-bold text-center">payment Method</th>
+                <th class="text-main fw-bold text-center">Total Price</th>
+                <th class="text-main fw-bold text-center">Count</th>
+                <th class="text-main fw-bold text-center">procedures</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="p-5" *ngFor="let order of allOrderList.reverse()">
+                <td>
+                    <p class="text-main fw-bold text-center">{{order.id}}</p>
+                </td>
+                <td>
+                    <p class="text-center">{{order.createdAt | date}}</p>
+                </td>
+                <td>
+                    <p class="text-center">{{order.paymentMethodType}}</p>
+                </td>
+                <td>
+                    <p class="text-center">{{order.totalOrderPrice}} SAR</p>
+                </td>
+                <td>
+                    <p class="text-center">{{order.cartItems.length}}</p>
+                </td>
+                <td class="text-center">
+                    <a [routerLink]="['/vieworder',order.id]">
+                        <button class="btn bg-main text-light" >Show</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>

@@ -1,0 +1,11 @@
+<div class="container-fluid mt-3">
+    <div class="row g-3">
+        <h2 class="text-main text-center">All Brand</h2>
+        <div class="col-md-2 cursor-pointer" *ngFor="let brand of brandsList" [routerLink]="['/brandProductes',brand._id]">
+            <div class="shadow border p-1 text-center">
+                <img [src]="brand.image" class="w-50" style="height: 100px;" />
+                <p class="mt-2">{{brand.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

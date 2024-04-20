@@ -1,0 +1,66 @@
+<nav  class="navbar navbar-expand-md navbar-light bg-light">
+    <div  #navbar class="nav-container container-fluid w-75 py-1" >
+        <a  class="navbar-brand fw-bolder" href="#">
+            <i class="fa-solid fa-cart-shopping text-main"></i>
+            FreshCart
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul *ngIf="isLogin" class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="text-main" routerLink="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="text-main" routerLink="category">Categores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="text-main" routerLink="brand">Brands</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="text-main" routerLink="product">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="text-main" routerLink="profile">profile</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 d-flex align-items-baseline">
+                <li class="nav-item position-relative text-main cursor-pointer me-3" routerLink="cart">
+                    <span class="cart-number position-absolute fs-6">{{CarttotalNumber.value}}</span>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </li>
+                <li class="nav-item position-relative text-main cursor-pointer me-2" routerLink="wishlist">
+                    <span class="cart-number position-absolute fs-6">{{WishlisttotalNumber.value}}</span>
+                    <i class="fa-solid fa-heart"></i>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-brands fa-facebook"></i>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-brands fa-twitter"></i>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-brands fa-instagram"></i>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-brands fa-behance"></i>
+                </li>
+                <li class="nav-item">
+                    <i class="fa-brands fa-youtube"></i>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link cursor-pointer" (click)="logout()" >Logout</a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link cursor-pointer" routerLinkActive="text-main" routerLink="auth/singin">Login</a>
+                </li>
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link cursor-pointer" routerLinkActive="text-main" routerLink="auth/singup">Register</a>
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+</nav>

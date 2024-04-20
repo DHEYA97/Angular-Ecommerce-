@@ -1,0 +1,40 @@
+<div class="container w-50 mt-5">
+    <div class="bg-light shadow border p-5" *ngIf="thinkYouPage != true;else thinkyou">
+        <h2 class="text-main mb-3 text-center">Shipping Address</h2>
+        <form [formGroup]="ShippingAddressForm" (ngSubmit)="makeOrder(ShippingAddressForm)">
+            <h3 class="alert alert-danger" *ngIf="ErrorMessage">
+                {{ErrorMessage}}
+            </h3>
+            <label for="userdetails">Details</label>
+            <input type="text" formControlName="details" class="form form-control mb-3" placeholder="Enter Your details" id="userdetails"/>
+            <div *ngIf="ShippingAddressForm.get('details')?.errors&&ShippingAddressForm.get('details')?.touched" class="text-center bg-danger rounded-2 py-1">
+                <p *ngIf="ShippingAddressForm.get('details')?.getError('required')"class="text-white">Required Input</p>
+            </div>
+
+            <label for="userPhone">phone</label>
+            <input type="text" formControlName="phone" class="form form-control mb-3" placeholder="Phone" id="userPhone"/>
+             <div *ngIf="ShippingAddressForm.get('phone')?.errors&&ShippingAddressForm.get('phone')?.touched" class="text-center bg-danger rounded-2 py-1">
+                    <p *ngIf="ShippingAddressForm.get('phone')?.getError('required')"class="text-white">Required Input</p>
+                    <p *ngIf="ShippingAddressForm.get('phone')?.getError('pattern')"  class="text-white">Write correct saudia phone</p>
+            </div>
+
+            <label for="userdetails">city:</label>
+            <input type="text" formControlName="city" class="form form-control mb-3" placeholder="Enter Your city" id="userdetails"/>
+            <div *ngIf="ShippingAddressForm.get('city')?.errors&&ShippingAddressForm.get('city')?.touched" class="text-center bg-danger rounded-2 py-1">
+                <p *ngIf="ShippingAddressForm.get('city')?.getError('required')"class="text-white">Required Input</p>
+            </div>
+
+
+            <button [disabled]="ShippingAddressForm.invalid" type="submit" class="bg-main px-4 me-3 py-2 btn text-white">Send</button>
+        </form>
+    </div>
+
+    <ng-template #thinkyou>
+        <div class="mt-5 bg-light shadow border p-5 text-main text-center">
+            <h2 class="alert alert-success">Thank You </h2>
+            <h2 class="alert alert-success">Your order is</h2>
+            <h2 class="alert alert-success">{{orderId}}</h2>
+            <p>{{time}}</p>
+        </div>
+    </ng-template>
+</div>
